@@ -5,6 +5,8 @@
 #define UNSET 0
 #define BUFFER SIZE 256
 #include <cstdio>
+#include <iostream>
+using namespace std;
 class FileDescriptor
 {
 	/* You must fill in these fields */
@@ -15,17 +17,17 @@ private:
 	int flag; /* to prevents two ungets in a row */
 	int buf_size; /* stores the buffer size */
 	char* buffer; /* buffer to store a line */
-	char* file_name; /* file name, allocate memory for this */
-	int flag2;
+	const char* file_name; /* file name, allocate memory for this */
+	//int flag2;
 	// add other fields or functions if you want
 public:
 	/* Externally-visible functions: */
-	char* getFileName();
+	const  char* getFileName();
 	bool isOpen(); // returns true if a file is open without errors, //otherwise returns false
 	char* getCurrLine(); // returns a pointer to buffer, null if EOF
 	int getLineNum();
 	int getCharNum();
-	FileDescriptor(char* FileName); // opens the stdin FileName is Null
+	FileDescriptor(const char* FileName); // opens the stdin FileName is Null
 	~FileDescriptor();
 	FileDescriptor(); //opens the stdin
 	void close(); // closes the file descriptor

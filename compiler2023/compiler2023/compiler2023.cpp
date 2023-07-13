@@ -2,10 +2,19 @@
 //
 
 #include <iostream>
-
+#include "FileDescriptor.h"
 int main()
 {
-    std::cout << "Hello World!\n";
+    const char* dd = "Text.txt";
+    FileDescriptor f(dd);
+    cout << f.getLineNum();
+    cout << f.isOpen();
+    char* str=f.getCurrLine();
+    cout<<str<<endl;
+    str = f.getCurrLine();
+    cout << str << endl;
+    f.close();
+    cout << f.isOpen();
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
