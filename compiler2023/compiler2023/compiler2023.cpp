@@ -2,10 +2,66 @@
 //
 
 #include <iostream>
-
+#include "FileDescriptor.h"
 int main()
 {
-    std::cout << "Hello World!\n";
+    char dd[] = "Text.txt";
+    FileDescriptor f(dd);
+    
+    char* str=f.getCurrLine();
+    cout << f.getChar() << "  char_number:" << f.getCharNum() << "  line_number:" << f.getLineNum() << endl;
+    cout << f.getChar() << "  char_number:" << f.getCharNum() << "  line_number:" << f.getLineNum() << endl;
+    cout << f.getChar() << "  char_number:" << f.getCharNum() << "  line_number:" << f.getLineNum() << endl;
+    cout << f.getChar() << "  char_number:" << f.getCharNum() << "  line_number:" << f.getLineNum() << endl;
+    cout << f.getChar() << "  char_number:" << f.getCharNum() << "  line_number:" << f.getLineNum() << endl;
+    cout << f.getChar() << "  char_number:" << f.getCharNum() << "  line_number:" << f.getLineNum() << endl;
+    cout << f.getChar() << "  char_number:" << f.getCharNum() << "  line_number:" << f.getLineNum() << endl;
+    cout << f.getChar() << "  char_number:" << f.getCharNum() << "  line_number:" << f.getLineNum() << endl;
+    cout << f.getChar() << "  char_number:" << f.getCharNum() << "  line_number:" << f.getLineNum() << endl;
+    cout << f.getChar() << "  char_number:" << f.getCharNum() << "  line_number:" << f.getLineNum() << endl;
+    cout << f.getChar() << "  char_number:" << f.getCharNum() << "  line_number:" << f.getLineNum() << endl;
+    cout << f.getChar() << "  char_number:" << f.getCharNum() << "  line_number:" << f.getLineNum() << endl;
+    cout << f.getChar() << "  char_number:" << f.getCharNum() << "  line_number:" << f.getLineNum() << endl;
+    f.reportError(str);
+    cout << f.getChar() << "  char_number:" << f.getCharNum() << "  line_number:" << f.getLineNum() << endl;
+    cout << f.getChar() << "  char_number:" << f.getCharNum() << "  line_number:" << f.getLineNum() << endl;
+    f.ungetChar(' ');
+    cout << f.getChar() << "  char_number:" << f.getCharNum() << "  line_number:" << f.getLineNum() << endl;
+    cout << f.getChar() << "  char_number:" << f.getCharNum() << "  line_number:" << f.getLineNum() << endl;
+    cout << f.getChar() << "  char_number:" << f.getCharNum() << "  line_number:" << f.getLineNum() << endl;
+    cout << f.getChar() << "  char_number:" << f.getCharNum() << "  line_number:" << f.getLineNum() << endl;
+    cout << f.getChar() << "  char_number:" << f.getCharNum() << "  line_number:" << f.getLineNum() << endl;
+    cout << f.getChar() << "  char_number:" << f.getCharNum() << "  line_number:" << f.getLineNum() << endl;
+    cout << f.getChar() << "  char_number:" << f.getCharNum() << "  line_number:" << f.getLineNum() << endl;
+    cout << f.getChar() << "  char_number:" << f.getCharNum() << "  line_number:" << f.getLineNum() << endl;
+    cout << f.getChar() << "  char_number:" << f.getCharNum() << "  line_number:" << f.getLineNum() << endl;
+    cout << f.getChar() << "  char_number:" << f.getCharNum() << "  line_number:" << f.getLineNum() << endl;
+    cout << f.getChar() << "  char_number:" << f.getCharNum() << "  line_number:" << f.getLineNum() << endl;
+    cout << f.getChar() << "  char_number:" << f.getCharNum() << "  line_number:" << f.getLineNum() << endl;
+    cout << f.getChar() << "  char_number:" << f.getCharNum() << "  line_number:" << f.getLineNum() << endl;
+    cout << f.getChar() << "  char_number:" << f.getCharNum() << "  line_number:" << f.getLineNum() << endl;
+    cout << f.getChar() << "  char_number:" << f.getCharNum() << "  line_number:" << f.getLineNum() << endl;
+    cout << f.getChar() << "  char_number:" << f.getCharNum() << "  line_number:" << f.getLineNum() << endl;
+    cout << f.getChar() << "  char_number:" << f.getCharNum() << "  line_number:" << f.getLineNum() << endl;
+    cout << f.getChar() << "  char_number:" << f.getCharNum() << "  line_number:" << f.getLineNum() << endl;
+    cout << f.getChar() << "  char_number:" << f.getCharNum() << "  line_number:" << f.getLineNum() << endl;
+    cout << f.getChar() << "  char_number:" << f.getCharNum() << "  line_number:" << f.getLineNum() << endl;
+    cout << f.getChar() << "  char_number:" << f.getCharNum() << "  line_number:" << f.getLineNum() << endl;
+    cout << f.getChar() << "  char_number:" << f.getCharNum() << "  line_number:" << f.getLineNum() << endl;
+    cout << f.getChar() << "  char_number:" << f.getCharNum() << "  line_number:" << f.getLineNum() << endl;
+    cout << f.getChar() << "  char_number:" << f.getCharNum() << "  line_number:" << f.getLineNum() << endl;
+    cout << f.getChar() << "  char_number:" << f.getCharNum() << "  line_number:" << f.getLineNum() << endl;
+    cout << f.getChar() << "  char_number:" << f.getCharNum() << "  line_number:" << f.getLineNum() << endl;
+    cout << f.getChar() << "  char_number:" << f.getCharNum() << "  line_number:" << f.getLineNum() << endl;
+    cout << f.getChar() << "  char_number:" << f.getCharNum() << "  line_number:" << f.getLineNum() << endl;
+    cout << f.getChar() << "  char_number:" << f.getCharNum() << "  line_number:" << f.getLineNum() << endl;
+    cout << f.getChar() << "  char_number:" << f.getCharNum() << "  line_number:" << f.getLineNum() << endl;
+    //for (int i = 0; str[i] != '\0'; i++) {
+    //    cout << str[i];
+    //    cout << i;
+    //}
+    
+    f.close();
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
