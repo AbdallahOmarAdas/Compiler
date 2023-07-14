@@ -2,12 +2,13 @@
 #pragma warning(disable : 4996)
 FileDescriptor::FileDescriptor()
 {
-	char buf[] = "";
+	char buf[] = "Text.txt";
 	line_number = 0;
 	char_number = 0;
-	file_name = "Text.txt";
+	file_name = new char[15];
+	file_name= buf;
 	buf_size = 1024;
-	buffer = buf;
+	buffer = nullptr;
 	flag = 0;
 	file_pointer = fopen(file_name, "r+");
 }
@@ -20,17 +21,39 @@ void FileDescriptor::close()
 
 char FileDescriptor::getChar()
 {
-	return 0;
+	if (char_number != -1000) {
+		if (buffer[char_number] != '\n') {
+			return buffer[char_number++];
+		}
+		else {
+			FileDescriptor::getCurrLine();
+			return ' ';
+		}
+	}
+	else {
+		return EOF;
+	}
+
 }
 
 void FileDescriptor::reportError(char* msg) {
-
+	cout << "\033[1;31m";
+	cout << "syntax error in line number: " << line_number << " and character number: " << char_number << endl;
+	
+	for (int i = 0; msg[i] != '\0'; i++) {
+    cout << msg[i];
+	}
+	for (int i = 0; i < char_number;i++) {
+		cout << " ";
+	}
+	cout << "^"<<endl;
+	cout << "\033[0m";
 }
 void FileDescriptor::ungetChar(char c) {
-
+	--char_number;
 }
 
-const char* FileDescriptor::getFileName()
+char* FileDescriptor::getFileName()
 {
 	return file_name;
 }
@@ -43,10 +66,18 @@ bool FileDescriptor::isOpen()
 }
 
 char* FileDescriptor::getCurrLine()
-{
-	char str[1024];
-	return fgets(str, 1000000, file_pointer);
-	
+{	
+	char_number = 0;
+	line_number++;
+		;
+		if (fgets(buffer, 1024, file_pointer) == NULL) {
+			cout << "EOF";
+			char_number = -1000;
+			return nullptr;
+		}
+		else {
+			return buffer;
+		}
 }
 
 int FileDescriptor::getLineNum()
@@ -59,32 +90,21 @@ int FileDescriptor::getCharNum()
 	return char_number;
 }
 
-FileDescriptor::FileDescriptor(const char* fileName)
+FileDescriptor::FileDescriptor(char* fileName)
 {
 	char buf[] = "";
 	line_number = 0;
 	char_number = 0;
 	file_name = fileName;
 	buf_size = 1024;
-	buffer = buf;
+	buffer = new char[buf_size];
 	flag = 0;
-	cout << buffer;
-	cout << "hello word from cpp";
 	file_pointer = fopen(file_name, "r+");
-	//int c;
-	//while (1) {
-	//	c = fgetc(file_pointer);
-	//	if (feof(file_pointer)) {
-	//		break;
-	//	}
-	//	printf("%c", c);
-	//}
-
 
 }
 
 FileDescriptor::~FileDescriptor()
 {
 	delete file_pointer;
-	
+	delete buffer;
 }
