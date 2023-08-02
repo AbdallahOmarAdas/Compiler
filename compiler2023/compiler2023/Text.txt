@@ -22,5 +22,7 @@ end
 "test string"
 ## following should be identifiers not keywords
 IF   While   Float
-## Following is short comment, should recognize X, Y as Identifiers
+## Following is short comment+=, should recognize X, Y as Identifiers
 X ##short comment ## Y
+
+

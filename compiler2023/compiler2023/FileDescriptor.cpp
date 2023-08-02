@@ -24,6 +24,9 @@ void FileDescriptor::close()
 
 char FileDescriptor::getChar()
 {
+	if (char_number==-1) {
+		char_number++;
+	}
 	if (char_number != -1000) {
 		if (buffer[char_number] != '\n') {
 			return buffer[char_number++];
@@ -35,6 +38,7 @@ char FileDescriptor::getChar()
 		}
 	}
 	else {
+		cout << "this is the end of file *******************" << endl;
 		return EOF;
 	}
 
@@ -85,8 +89,7 @@ char* FileDescriptor::getCurrLine()
 	char_number = 0;
 	line_number++;
 		
-		if (fgets(buffer, 1024, file_pointer) == NULL) {
-			//cout << "EOF";
+		if (fgets(buffer, buf_size, file_pointer) == nullptr) {
 			char_number = -1000;
 			return nullptr;
 		}
@@ -134,7 +137,9 @@ int FileDescriptor::allocatMem(FILE *file) {
 	while (count > mem)mem *= 2;
 	cout << "allocated memory for buffer:" << endl;
 	cout << "-------------------------------------- " << mem << " --------------------------------------------"<<endl;
-	fclose(file);
+	fputc('\n', file_pointer);
+	if(ch!='\n')fclose(file);
+	
 	return mem;
 }
 FileDescriptor::~FileDescriptor()
