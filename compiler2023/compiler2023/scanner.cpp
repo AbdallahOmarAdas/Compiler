@@ -144,14 +144,11 @@ TOKEN* Scanner::Scan()
            // temp = Fd->getChar();
         }
         else if (getClassType(temp) == iligel_Class) {
-            cout << int(temp)<< "fffffffffffffffffffffffffffff" << endl;
-            if ((int(temp) != 8) && (int(temp) != 16)) {
                 Fd->ungetChar();
                 char msg[] = "illegal token detected ";
                 Fd->reportError(msg, temp);
                 Fd->getCurrLine();
                 continue;
-            }
         }
         else if (getClassType(temp) == symbol_class ) {
             
@@ -160,10 +157,10 @@ TOKEN* Scanner::Scan()
                 if (temp == '#') {
                     while (1) {
                         temp = Fd->getChar();
+                        
                         if (temp == '#') {
                             temp = Fd->getChar();
                             if (temp == '#') {
-                                //cout << "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$" << endl;
                                 break;
                             }
                             else {
@@ -172,15 +169,14 @@ TOKEN* Scanner::Scan()
                                 Fd->reportError(msg, '#');
                             }
                         }
-                        cout << temp << endl;
-                        if ((temp == '\r') || (temp == EOF)) {
-                            //skip_comments();
-                            //break;
-                            continue;
+                        
+                        else if ( (temp == '\r')) {
+                            break;
+                            
+                            
                         }
-                       // cout << "999999999999999999999999999999" << endl;
+                        
                     }
-                    //skip_comments();
                 }
                 else {
                     Fd->ungetChar();
@@ -361,7 +357,9 @@ int main() {
     Scanner scan;
     TOKEN* tok;
     while (1) {
+        
         tok=scan.Scan();
+        //cout << "char_number=" << scan.Fd->getCharNum() << endl;
     cout << " token->type = " << tok->type << endl;
     if (tok->type == LX_INTEGER)cout << " token->value = " << tok->value << endl;
     else if (tok->type == LX_EOF) { 
@@ -372,7 +370,8 @@ int main() {
             }
             cout << endl;
         }
-        exit(0);
+        break;
+        
     }
     else {
         if (tok->str != NULL) {
