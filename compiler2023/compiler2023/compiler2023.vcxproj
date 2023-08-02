@@ -139,13 +139,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\..\..\Downloads\scanner.cpp" />
     <ClCompile Include="compiler2023.cpp" />
     <ClCompile Include="FileDescriptor.cpp" />
+    <ClCompile Include="scanner.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\..\..\Downloads\scanner.h" />
     <ClInclude Include="FileDescriptor.h" />
+    <ClInclude Include="scanner.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="Text.txt" />
