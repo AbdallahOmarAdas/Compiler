@@ -7,10 +7,13 @@ FileDescriptor::FileDescriptor()
 	char_number = 0;
 	file_name = new char[15];
 	file_name= buf;
-	buf_size = 1024;
-	buffer = nullptr;
+	//buf_size = 1024;
 	flag = 0;
 	file_pointer = fopen(file_name, "r+");
+	buf_size = allocatMem(file_pointer);
+	file_pointer = fopen(file_name, "r+");
+	buffer = new char[buf_size];
+	getCurrLine();
 }
 
 void FileDescriptor::close()
@@ -26,8 +29,9 @@ char FileDescriptor::getChar()
 			return buffer[char_number++];
 		}
 		else {
+			
 			FileDescriptor::getCurrLine();
-			return ' ';
+			return '\r';
 		}
 	}
 	else {
@@ -36,20 +40,31 @@ char FileDescriptor::getChar()
 
 }
 
-void FileDescriptor::reportError(char* msg) {
+void FileDescriptor::reportError(const char* msg, char c) {
 	cout << "\033[1;31m";
 	cout << "syntax error in line number: " << line_number << " and character number: " << char_number << endl;
 	
 	for (int i = 0; msg[i] != '\0'; i++) {
-    cout << msg[i];
+		cout << msg[i];
+	}
+	
+	cout << "'" << c << "'";
+	
+	cout << endl;
+	if (msg[0] != 'u') {
+		for (int i = 0; buffer[i] != '\0'; i++) {
+			cout << buffer[i];
+		}
+		//cout << endl;
 	}
 	for (int i = 0; i < char_number;i++) {
 		cout << " ";
 	}
 	cout << "^"<<endl;
 	cout << "\033[0m";
+	//exit(0);
 }
-void FileDescriptor::ungetChar(char c) {
+void FileDescriptor::ungetChar() {
 	--char_number;
 }
 
@@ -69,9 +84,9 @@ char* FileDescriptor::getCurrLine()
 {	
 	char_number = 0;
 	line_number++;
-		;
+		
 		if (fgets(buffer, 1024, file_pointer) == NULL) {
-			cout << "EOF";
+			//cout << "EOF";
 			char_number = -1000;
 			return nullptr;
 		}
@@ -96,13 +111,32 @@ FileDescriptor::FileDescriptor(char* fileName)
 	line_number = 0;
 	char_number = 0;
 	file_name = fileName;
-	buf_size = 1024;
-	buffer = new char[buf_size];
 	flag = 0;
 	file_pointer = fopen(file_name, "r+");
-
+	buf_size=allocatMem(file_pointer);
+	file_pointer = fopen(file_name, "r+");
+	//buf_size = 1024;
+	buffer = new char[buf_size];
+	getCurrLine();
 }
-
+int FileDescriptor::allocatMem(FILE *file) {
+	int ch;
+	int count = 0;
+	int temp = 0;
+	while ((ch = fgetc(file)) != EOF) {
+		temp++;
+		if (ch == '\n' || ch == EOF) {
+			if (temp > count)count = temp;
+			temp = 0;
+		}
+	}
+	int mem = 16;
+	while (count > mem)mem *= 2;
+	cout << "allocated memory for buffer:" << endl;
+	cout << "-------------------------------------- " << mem << " --------------------------------------------"<<endl;
+	fclose(file);
+	return mem;
+}
 FileDescriptor::~FileDescriptor()
 {
 	delete file_pointer;

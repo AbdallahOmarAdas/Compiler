@@ -29,11 +29,13 @@ public:
 	int getCharNum();
 	FileDescriptor(char FileName[]); // opens the stdin FileName is Null
 	~FileDescriptor();
+	int allocatMem(FILE* file);
 	FileDescriptor(); //opens the stdin
 	void close(); // closes the file descriptor
 	char getChar(); // Gets the current character in the file
 	//bool open_file_descriptor (char *filename);
-	void reportError(char* msg); // reports the error specifying the current line and //character
-	void ungetChar(char c); // puts back the current character, modifies char number
+	void reportError(const char* msg,char c); // reports the error specifying the current line and //character
+	//void ungetChar(char c); // puts back the current character, modifies char number
+	void ungetChar();
 };
 #endif
