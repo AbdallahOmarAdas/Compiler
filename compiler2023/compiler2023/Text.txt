@@ -24,5 +24,3 @@ end
 IF   While   Float
 ## Following is short comment+=, should recognize X, Y as Identifiers
 X ##short comment ## Y
-
-

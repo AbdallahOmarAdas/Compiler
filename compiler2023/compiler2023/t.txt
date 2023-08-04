@@ -1,0 +1,24 @@
+
+integer x =5;
+integer y =10;
+integer z =55;
+integer Z =9;
+
+char k =66;
+integer p ;
+float o ;
+
+begin
+integer x =5;
+integer y =10;
+begin
+integer x =5;
+integer y =10;
+integer m =10;
+integer z =55;
+end
+integer z =55;
+end
+
+double DoG ;
+char* v ;
