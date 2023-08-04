@@ -139,15 +139,24 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="compiler2023.cpp" />
     <ClCompile Include="FileDescriptor.cpp" />
+    <ClCompile Include="main.cpp" />
     <ClCompile Include="scanner.cpp" />
+    <ClCompile Include="SymbolTableList.cpp" />
+    <ClCompile Include="SymbolTable.cpp" />
+    <ClCompile Include="SymbolTableEntry.cpp" />
+    <ClCompile Include="stlist.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="FileDescriptor.h" />
     <ClInclude Include="scanner.h" />
+    <ClInclude Include="SymbolTable.h" />
+    <ClInclude Include="SymbolTableEntry.h" />
+    <ClInclude Include="stlist.h" />
   </ItemGroup>
   <ItemGroup>
+    <Text Include="out.txt" />
+    <Text Include="t.txt" />
     <Text Include="Text.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

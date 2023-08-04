@@ -126,7 +126,9 @@ int FileDescriptor::allocatMem(FILE *file) {
 	int ch;
 	int count = 0;
 	int temp = 0;
+	int ch_old;
 	while ((ch = fgetc(file)) != EOF) {
+		ch_old = ch;
 		temp++;
 		if (ch == '\n' || ch == EOF) {
 			if (temp > count)count = temp;
@@ -137,9 +139,10 @@ int FileDescriptor::allocatMem(FILE *file) {
 	while (count > mem)mem *= 2;
 	cout << "allocated memory for buffer:" << endl;
 	cout << "-------------------------------------- " << mem << " --------------------------------------------"<<endl;
-	fputc('\n', file_pointer);
-	if(ch!='\n')fclose(file);
 	
+	if(ch_old !='\n')fputc('\n', file_pointer);
+	
+	fclose(file);
 	return mem;
 }
 FileDescriptor::~FileDescriptor()

@@ -12,20 +12,20 @@ using namespace std;
 
 
 std::string numberr;
-const int keys = 30; /* number of keywords */
+const int keys = 32; /* number of keywords */
 const char* keyword[] = {
 "and", "begin", "boolean", "by", "constant",
 "do", "else", "end", "false", "fi", "float", "for", "from",
 "function", "if", "integer", "not", "od", "or", "procedure",
 "program", "read", "return", "string", "then", "to", "true",
-"var", "while", "write"
+"var", "while", "write","char","double"
 };
 LEXEME_TYPE key_type[] = {
 KW_AND, KW_BEGIN, KW_BOOLEAN, KW_BY, KW_CONSTANT,
 KW_DO, KW_ELSE, KW_END, KW_FALSE, KW_FI, KW_FLOAT,
 KW_FOR, KW_FROM, KW_FUNCTION, KW_IF, KW_INTEGER, KW_NOT,
 KW_OD, KW_OR, KW_PROCEDURE, KW_PROGRAM, KW_READ, KW_RETURN,
-KW_STRING, KW_THEN, KW_TO, KW_TRUE, KW_VAR, KW_WHILE, KW_WRITE
+KW_STRING, KW_THEN, KW_TO, KW_TRUE, KW_VAR, KW_WHILE, KW_WRITE ,KW_CHAR,KW_DOUBLE
 };
 
 int Scanner::check_keyword(const char* word)
@@ -44,11 +44,12 @@ void Scanner::skip_comments()
 }
 Scanner::Scanner()
 {
-    char fileName[] = "Text.txt";
+    char fileName[] = "t.txt";
     Fd = new FileDescriptor(fileName);
 }
 Scanner::~Scanner()
 {
+    //delete Fd;
     Fd->close();
     Fd->~FileDescriptor();
 }
@@ -353,34 +354,34 @@ TOKEN* Scanner::Scan()
     return token;
 }
 
-int main() {
-    Scanner scan;
-    TOKEN* tok;
-    while (1) {
-        
-        tok=scan.Scan();
-        //cout << "char_number=" << scan.Fd->getCharNum() << endl;
-    cout << " token->type = " << tok->type << endl;
-    if (tok->type == LX_INTEGER)cout << " token->value = " << tok->value << endl;
-    else if (tok->type == LX_EOF) { 
-        if (tok->str != NULL) {
-            cout << " token->str = ";
-            for (int i = 0; tok->str[i] != '\0'; i++) {
-                cout << tok->str[i];
-            }
-            cout << endl;
-        }
-        break;
-        
-    }
-    else {
-        if (tok->str != NULL) {
-            cout << " token->str = ";
-            for (int i = 0; tok->str[i] != '\0'; i++) {
-                cout << tok->str[i];
-            }
-            cout << endl; 
-        }
-    }
-    }
-}
+//int main() {
+//    Scanner scan;
+//    TOKEN* tok;
+//    while (1) {
+//        
+//        tok=scan.Scan();
+//        //cout << "char_number=" << scan.Fd->getCharNum() << endl;
+//    cout << " token->type = " << tok->type << endl;
+//    if (tok->type == LX_INTEGER)cout << " token->value = " << tok->value << endl;
+//    else if (tok->type == LX_EOF) { 
+//        if (tok->str != NULL) {
+//            cout << " token->str = ";
+//            for (int i = 0; tok->str[i] != '\0'; i++) {
+//                cout << tok->str[i];
+//            }
+//            cout << endl;
+//        }
+//        break;
+//        
+//    }
+//    else {
+//        if (tok->str != NULL) {
+//            cout << " token->str = ";
+//            for (int i = 0; tok->str[i] != '\0'; i++) {
+//                cout << tok->str[i];
+//            }
+//            cout << endl; 
+//        }
+//    }
+//    }
+//}
