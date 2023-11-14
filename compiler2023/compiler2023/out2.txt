@@ -1,0 +1,48 @@
+x123 : Integer, x1 : Integer, str : String, bool : Boolean
+==============
+T[0]: 0 ste:	
+T[1]: 0 ste:	
+T[2]: 0 ste:	
+T[3]: 1 ste:	(str,string) 
+T[4]: 0 ste:	
+T[5]: 0 ste:	
+T[6]: 0 ste:	
+T[7]: 0 ste:	
+T[8]: 0 ste:	
+T[9]: 2 ste:	(bool,boolean) (x123,integer) 
+T[10]: 0 ste:	
+T[11]: 0 ste:	
+T[12]: 1 ste:	(x1,integer) 
+T[13]: 0 ste:	
+T[14]: 0 ste:	
+T[15]: 0 ste:	
+T[16]: 0 ste:	
+T[17]: 0 ste:	
+T[18]: 0 ste:	
+
+==============
+
+==============
+T[0]: 0 ste:	
+T[1]: 0 ste:	
+T[2]: 0 ste:	
+T[3]: 0 ste:	
+T[4]: 0 ste:	
+T[5]: 1 ste:	(raed,None) 
+T[6]: 0 ste:	
+T[7]: 1 ste:	(abbd,integer) 
+T[8]: 0 ste:	
+T[9]: 0 ste:	
+T[10]: 0 ste:	
+T[11]: 0 ste:	
+T[12]: 0 ste:	
+T[13]: 0 ste:	
+T[14]: 2 ste:	(abd,None) (noor,integer) 
+T[15]: 0 ste:	
+T[16]: 0 ste:	
+T[17]: 0 ste:	
+T[18]: 0 ste:	
+
+==============
+hwllp
+x123 : Integer, x1 : Integer, str : String, bool : Boolean

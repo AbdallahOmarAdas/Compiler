@@ -1,0 +1,68 @@
+var noor: Integer;, constant raed = 3;
+, function abbd () : Integer
+ begin
+   
+ end;
+, procedure abd (x123 : Integer, x1 : Integer, str : String, bool : Boolean)
+ begin
+   var abdo : Integer
+   var abdo2 : Integer
+   write (abdo);
+   read (abdo);
+   return ((9 + 9));
+   noor := -5;
+   begin
+     var x123 : Integer
+     var a : Integer
+     a := (not true);
+     noor := (not true);
+     begin
+       var a : Integer
+       a := (not true);
+       noor := (not true);
+     end;
+   end;
+   noor := (not true);
+   abd (abd (), (8 -((2 + ((-3 * 8) * 9)) >= 226)));
+   abd (99, 77, 99);
+ end;
+, function ahmad (x123 : Integer, x1 : Integer, str : String, bool : Boolean) : Integer
+ begin
+   var abdo : Integer
+   var abdo2 : Integer
+   var x : Integer
+   write (abdo);
+   read (abdo);
+   return ((9 + 9));
+   noor := -5;
+   begin
+     var a : Integer
+     a := (not true);
+     noor := (not true);
+     begin
+       var a : Integer
+       a := (not true);
+       noor := (not true);
+     end;
+   end;
+   noor := (not true);
+   abd (abd (), (8 -((2 + ((-3 * 8) * 9)) >= 226)));
+   abd (99, 77, 99);
+   for abdo = false to 14 do
+     abdo := (abdo -1)
+   od;
+   while true do
+     begin
+       noor := (7 + 8);
+     end
+   od;
+   if (x = 5) then
+     begin
+       x := 55;
+     end
+   else
+     begin
+       x := 0;
+     end;
+ end;
+, EOF

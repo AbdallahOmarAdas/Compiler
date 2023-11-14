@@ -1,24 +1,70 @@
-
-integer x =5;
-integer y =10;
-integer z =55;
-integer Z =9;
-
-char k =66;
-integer p ;
-float o ;
-
+var noor : integer;
+##constant raed= (noor);
+constant raed= (3 +  -(-true)- 1 );
+function abbd():integer begin end;
+procedure abd(x123:integer,x1:integer,str:string,bool:boolean)begin
+var abdo : integer;
+var abdo2 : integer;
+##var x123:integer;
+write(abdo);
+read (abdo);
+return(9+9);
+noor:=(-5);
 begin
-integer x =5;
-integer y =10;
+var x123:integer;
+var a : integer;
+a:=not(true);
+noor:=not true;
 begin
-integer x =5;
-integer y =10;
-integer m =10;
-integer z =55;
+var a : integer;
+a:=not(true);
+noor:=not true;
+end;
+end;
+noor:=not(true);
+abd(abd(),8-(2+-3*8*9>=226));
+abd(99,77,99); 
+end ;
+function ahmad (x123:integer,x1:integer,str:string,bool:boolean) :integer
+begin
+var abdo : integer;
+var abdo2 : integer;
+##var x123:integer;
+var x : integer;
+write(abdo);
+read (abdo);
+return(9+9);
+noor:=(-5);
+begin
+var a : integer;
+a:=not(true);
+noor:=not true;
+begin
+var a : integer;
+a:=not(true);
+noor:=not true;
+end;
+end;
+noor:=not(true);
+abd(abd(),8-(2+-3*8*9>=226));
+abd(99,77,99);
+for abdo:= (false) to 14 do
+abdo:=abdo - 1
+od;
+while (true) do 
+begin
+noor:= 7+8;
 end
-integer z =55;
-end
+od;
 
-double DoG ;
-char* v ;
+if x=5 then 
+begin
+x:=55 ;
+end
+else 
+begin
+x:=0 ;
+end
+fi;
+end
+;
