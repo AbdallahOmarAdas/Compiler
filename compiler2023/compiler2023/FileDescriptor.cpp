@@ -2,7 +2,7 @@
 #pragma warning(disable : 4996)
 FileDescriptor::FileDescriptor()
 {
-	char buf[] = "Text.txt";
+	char buf[] = "t.txt";
 	line_number = 0;
 	char_number = 0;
 	file_name = new char[15];
@@ -38,7 +38,7 @@ char FileDescriptor::getChar()
 		}
 	}
 	else {
-		cout << "this is the end of file *******************" << endl;
+		//cout << "this is the end of file *******************" << endl;
 		return EOF;
 	}
 
@@ -46,13 +46,32 @@ char FileDescriptor::getChar()
 
 void FileDescriptor::reportError(const char* msg, char c) {
 	cout << "\033[1;31m";
+	line_number = ((c == 'n') ? line_number - 2 : line_number);
+	line_number = ((c == 'm') ? line_number - 1 : line_number);
 	cout << "syntax error in line number: " << line_number << " and character number: " << char_number << endl;
-	
+	if (c=='p') {
+		cout << "expected ";
+	}
+	else if (c=='d') {
+		cout << "Multiple declarations for: ";
+	}
+	else if (c == 'n') {
+		cout << "no declaration found for: ";
+	}
+	else if (c == 'm') {
+		cout << "expected a argument list for: ";
+	}
 	for (int i = 0; msg[i] != '\0'; i++) {
 		cout << msg[i];
 	}
-	
-	cout << "'" << c << "'";
+	if (c == 'p') {
+		cout << " token "<<endl;
+	}
+	if (c == 'n') {
+		cout << "\033[0m";
+		exit(1);
+	}
+	if(c!='p' && c != 'd' && c != 'n' && c!= 'a' && c != 'm') cout << "'" << c << "'";
 	
 	cout << endl;
 	if (msg[0] != 'u') {
@@ -66,7 +85,7 @@ void FileDescriptor::reportError(const char* msg, char c) {
 	}
 	cout << "^"<<endl;
 	cout << "\033[0m";
-	//exit(0);
+	exit(1);
 }
 void FileDescriptor::ungetChar() {
 	--char_number;
@@ -126,7 +145,7 @@ int FileDescriptor::allocatMem(FILE *file) {
 	int ch;
 	int count = 0;
 	int temp = 0;
-	int ch_old;
+	int ch_old=' ';
 	while ((ch = fgetc(file)) != EOF) {
 		ch_old = ch;
 		temp++;

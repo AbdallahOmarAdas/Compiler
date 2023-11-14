@@ -1,6 +1,6 @@
 #include "SymbolTable.h"
-
-
+#include <iostream>
+using namespace std;
 void SymbolTable::init(int size)
 {
    nextST = NULL;
@@ -74,7 +74,7 @@ unsigned long SymbolTable::ElfHash(const char *str )
  * @param type : type of Entry. See the Main function for example how to find it
  * @return  true if added and false otherwise, the List Table[index] Already returns this for you
  */
-bool SymbolTable::PutSymbol(char *name, STE_TYPE type)
+SymbolTableEntry* SymbolTable::PutSymbol (char* name, J_type type, ste_entry_type steType, int constVal)
 {   
     if (fold_flag == 1) {
         for (int i = 0; name[i] != '\0';i++) {
@@ -84,8 +84,9 @@ bool SymbolTable::PutSymbol(char *name, STE_TYPE type)
         }
     }
     unsigned long index = ElfHash(name);
-    bool Added = Table[index].AddEntry(name, type);
-    return Added;
+    //bool Added = Table[index].AddEntry(name, type);
+    //cout << "++J_type: " <<type << " ste_type: " << steType << " const val: " << constVal << endl;
+    return Table[index].AddEntry(name, type,steType, constVal);
 }
 /**
  * @brief SymbolTable::FindAndPrintEntry Finds and prints the Entry if it is found
@@ -93,13 +94,18 @@ bool SymbolTable::PutSymbol(char *name, STE_TYPE type)
  * @param name  : name to search for
  * @param fp  : File pointer to print : See Example in reults
  */
-void  SymbolTable::GetSymbol(const char *name, FILE *fp)// may be find and print entry
+SymbolTableEntry*  SymbolTable::GetSymbol(const char *name)// may be find and print entry
 {
     unsigned long index = ElfHash(name);
     SymbolTableEntry *ste = Table[index].FindEntry(name);
-    if(ste) fprintf(fp,"%s: Found = %s\n", name, ste->toString()); // to be fixed , se
-    else fprintf(fp,"%s: not found \n",name);
+    if(ste) printf("%s: Found = %s\n", name, ste->toString()); // to be fixed , se
+    else printf("%s: not found \n",name);
+    return ste;
+}
 
+J_type SymbolTable::ste_var_type(SymbolTableEntry* ste) {
+
+    return ste->Type;
 }
 /**
  * @brief SymbolTable::PrintAll : Prints all Elements. Print the Count of each list and the Entries.
@@ -154,10 +160,14 @@ void SymbolTable::PrintSymbolStats(FILE* fp)
     printf("Maximum entries searched: %d\n", max_search_dist);
     fprintf(fp, "Maximum entries searched: %d\n", max_search_dist);
 }
+
 SymbolTable::~SymbolTable()
 {
     ClearSymbolTable();
     delete[]Table;
+}
+char *SymbolTable::ste_name(SymbolTableEntry * ste) {
+    return ste->Name;
 }
 
 

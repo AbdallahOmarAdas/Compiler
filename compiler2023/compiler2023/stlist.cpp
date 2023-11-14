@@ -1,4 +1,6 @@
 #include "stlist.h"
+#include <iostream>
+using namespace std;
 /**
  * @brief STList::STList
  * default constructor, initialize head and Counter
@@ -13,7 +15,7 @@ STList::STList()
  * @param name : Given name to find
  * @return : If name is found found return NULL otherwise reaturn a pointer to the Node
  */
-SymbolTableEntry * STList::FindEntry(const char *name)
+SymbolTableEntry* STList::FindEntry(const char *name)
 {
     SymbolTableEntry *ste = Head;
     while (ste != NULL)
@@ -31,24 +33,39 @@ SymbolTableEntry * STList::FindEntry(const char *name)
  * @param type : Type of variable
  * @return : True if the node is added and False if the Entry Already exists in the Table
  */
-bool STList::AddEntry(char *name, STE_TYPE type)
+SymbolTableEntry* STList::AddEntry(char *name, J_type type, ste_entry_type steType, int constVal)
 {
   SymbolTableEntry *ste = FindEntry(name);
   bool added = false;
   if(ste)
   {
       printf("Entry Already exist, nothing Added\n");
+      return NULL;
   }
   else
   {
-      ste = new SymbolTableEntry(name, type) ;
+      if (steType ==STE_VAR) {
+          ste = new SymbolTableEntry(name, steType, type);
+      }
+      else if (steType == STE_CONST) {
+          //cout << "++J_type: " << type << " ste_type: " << steType << " const val: " << constVal << endl;
+          ste = new SymbolTableEntry(name, steType, constVal);
+      }
+      else if (steType == STE_ROUTINE) {
+          ste = new SymbolTableEntry(name, steType, type);
+      }
+      else {
+          ste = new SymbolTableEntry(name, STE_UNDEFINED, STE_NONE);
+      }
+      //ste = new SymbolTableEntry(name, type) ;
       ste->Next = Head;
       Head = ste;
       added = true;
 
       Counter++;
+      return ste;
   }
-  return added;
+  
 }
 /**
  * @brief STList::PrintAll : Prints All nodes in the list, use the print in the SymbolTableEntry.
@@ -65,6 +82,8 @@ void STList::PrintAll(FILE *fp)
     fprintf(fp,"\n");
 
 }
+
+
 /**
  * @brief STList::Count returns Counter which is Number of Elements
  * @return

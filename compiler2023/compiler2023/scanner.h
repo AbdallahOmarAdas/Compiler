@@ -56,12 +56,12 @@ class Scanner{
 		~Scanner();
 		int find_lx_op(char c);
 		int find_lx_op2(const char* word);
-		//Scanner(FileDescriptor *fd){ Fd = fd; /* write other code if needed*/};
+		Scanner(FileDescriptor* fd);// { Fd = fd; /* write other code if needed*/};
 		TOKEN* Scan(); 
 		// You may define it as TOKEN *Scan(FileDescriptor *fd);
 
 };
-
+const char* type_name(LEXEME_TYPE lx);
 
 
 

@@ -20,13 +20,17 @@ public:
     SymbolTable* nextST;
     SymbolTable();
     ~SymbolTable();
+    char* ste_name(SymbolTableEntry* ste);
     SymbolTable(unsigned long size, int fold_case_flag);
     void Reset(unsigned long size);
-    bool PutSymbol(char *name, STE_TYPE type);
-    void GetSymbol(const char *name, FILE *fp);//finds and prints the Entry if it exist
+    SymbolTableEntry* PutSymbol(char* name, J_type type, ste_entry_type steType, int constVal);
+    SymbolTableEntry* GetSymbol(const char *name);
+    J_type ste_var_type(SymbolTableEntry* ste);
+    //finds and prints the Entry if it exist
     void PrintAll(FILE *fp);
     void ClearSymbolTable();
     void PrintSymbolStats(FILE* fp);
+
 };
 
 #endif // STABLE_H

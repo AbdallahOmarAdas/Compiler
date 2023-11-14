@@ -1,118 +1,73 @@
-
-**(Test 1)**: Reading from the file t.txt and creating a symnol table with size = 19(default)
-
-
-==============
-T[0]: 0 ste:	
-T[1]: 0 ste:	
-T[2]: 0 ste:	
-T[3]: 0 ste:	
-T[4]: 0 ste:	
-T[5]: 0 ste:	
-T[6]: 1 ste:	(x,integer) 
-T[7]: 1 ste:	(y,integer) 
-T[8]: 1 ste:	(z,integer) 
-T[9]: 0 ste:	
-T[10]: 0 ste:	
-T[11]: 0 ste:	
-T[12]: 0 ste:	
-T[13]: 0 ste:	
-T[14]: 1 ste:	(m,integer) 
-T[15]: 0 ste:	
-T[16]: 0 ste:	
-T[17]: 0 ste:	
-T[18]: 0 ste:	
-
-==============
-
-==============
-T[0]: 0 ste:	
-T[1]: 0 ste:	
-T[2]: 0 ste:	
-T[3]: 0 ste:	
-T[4]: 0 ste:	
-T[5]: 0 ste:	
-T[6]: 1 ste:	(x,integer) 
-T[7]: 1 ste:	(y,integer) 
-T[8]: 1 ste:	(z,integer) 
-T[9]: 0 ste:	
-T[10]: 0 ste:	
-T[11]: 0 ste:	
-T[12]: 0 ste:	
-T[13]: 0 ste:	
-T[14]: 0 ste:	
-T[15]: 0 ste:	
-T[16]: 0 ste:	
-T[17]: 0 ste:	
-T[18]: 0 ste:	
-
-==============
-
-==============
-T[0]: 0 ste:	
-T[1]: 0 ste:	
-T[2]: 0 ste:	
-T[3]: 0 ste:	
-T[4]: 1 ste:	(v,char*) 
-T[5]: 0 ste:	
-T[6]: 1 ste:	(x,integer) 
-T[7]: 1 ste:	(y,integer) 
-T[8]: 2 ste:	(DoG,double) (z,integer) 
-T[9]: 0 ste:	
-T[10]: 0 ste:	
-T[11]: 0 ste:	
-T[12]: 1 ste:	(k,char) 
-T[13]: 0 ste:	
-T[14]: 1 ste:	(Z,integer) 
-T[15]: 0 ste:	
-T[16]: 1 ste:	(o,float) 
-T[17]: 1 ste:	(p,integer) 
-T[18]: 0 ste:	
-Number of entries in table: 9
-Number of probes into table: 2
-Number of probes that immediately found entry: 7
-Maximum entries searched: 2
-
-==============
-
-
-**(Test 2)**: Searching for some Variables in the Symobol Table Created
-
-m: not found 
-k: Found = (k,char)
-x: Found = (x,integer)
-dog: not found 
-
-Clear Global Symbol Table
-==============
-T[0]: 0 ste:	
-T[1]: 0 ste:	
-T[2]: 0 ste:	
-T[3]: 0 ste:	
-T[4]: 0 ste:	
-T[5]: 0 ste:	
-T[6]: 0 ste:	
-T[7]: 0 ste:	
-T[8]: 0 ste:	
-T[9]: 0 ste:	
-T[10]: 0 ste:	
-T[11]: 0 ste:	
-T[12]: 0 ste:	
-T[13]: 0 ste:	
-T[14]: 0 ste:	
-T[15]: 0 ste:	
-T[16]: 0 ste:	
-T[17]: 0 ste:	
-T[18]: 0 ste:	
-
-==============
-
-
-**(Test 2)**: Searching for some Variables in the Symobol Table Created
-
-m: not found 
-k: not found 
-x: not found 
-dog: not found 
-
-------------------done-------------------
+var noor: Integer; 
+constant raed = 3;
+ 
+function abbd () : Integer
+  begin
+    
+  end;
+ 
+procedure abd (x123 : Integer, x1 : Integer, str : String, bool : Boolean)
+  begin
+    var abdo : Integer
+    var abdo2 : Integer
+    write (abdo);
+    read (abdo);
+    return ((9 + 9));
+    noor := -5;
+    begin
+      var x123 : Integer
+      var a : Integer
+      a := (not true);
+      noor := (not true);
+      begin
+        var a : Integer
+        a := (not true);
+        noor := (not true);
+      end;
+    end;
+    noor := (not true);
+    abd (abd (), (8 -((2 + ((-3 * 8) * 9)) >= 226)));
+    abd (99, 77, 99);
+  end;
+ 
+function ahmad (x123 : Integer, x1 : Integer, str : String, bool : Boolean) : Integer
+  begin
+    var abdo : Integer
+    var abdo2 : Integer
+    var x : Integer
+    write (abdo);
+    read (abdo);
+    return ((9 + 9));
+    noor := -5;
+    begin
+      var a : Integer
+      a := (not true);
+      noor := (not true);
+      begin
+        var a : Integer
+        a := (not true);
+        noor := (not true);
+      end;
+    end;
+    noor := (not true);
+    abd (abd (), (8 -((2 + ((-3 * 8) * 9)) >= 226)));
+    abd (99, 77, 99);
+    for abdo = false to 14 do
+      abdo := (abdo -1)
+    od;
+    while true do
+      begin
+        noor := (7 + 8);
+      end
+    od;
+    if (x = 5) then
+      begin
+        x := 55;
+      end
+    else
+      begin
+        x := 0;
+      end;
+  end;
+ 
+EOF
